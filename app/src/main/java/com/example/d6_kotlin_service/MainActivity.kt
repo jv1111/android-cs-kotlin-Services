@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.d6_kotlin_service.BackgroundService.Companion.MARKS
 import com.example.d6_kotlin_service.BackgroundService.Companion.Tag
+import com.example.d6_kotlin_service.BackgroundService.Companion.dataName
 import com.example.d6_kotlin_service.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val serviceIntent = Intent(this, BackgroundService::class.java)
+        serviceIntent.putExtra(dataName, "dataValue")
+        serviceIntent.putExtra(MARKS, 77)
         binding.btnStart.setOnClickListener{
             Log.i(Tag, "starting")
             startService(serviceIntent)

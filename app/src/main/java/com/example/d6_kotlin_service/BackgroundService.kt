@@ -13,7 +13,11 @@ class BackgroundService : Service(){
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(Tag,"Service started")
-        return START_STICKY
+        val name = intent?.getStringExtra(dataName)
+        val mark = intent?.getIntExtra(MARKS, 0)
+        Log.i( Tag, "name: $name")
+        Log.i(Tag, "mark: $mark")
+        return START_STICKY//START_NOT_STICKY etc...
     }
 
     override fun onDestroy() {
@@ -25,6 +29,8 @@ class BackgroundService : Service(){
 
     companion object{
         const val Tag = "myTag"
+        const val dataName = "dataName"
+        const val MARKS = "TOTAL MARKS"
     }
 
 }
