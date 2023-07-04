@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.d6_kotlin_service.BackgroundService.Companion.Tag
 import com.example.d6_kotlin_service.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,11 +17,11 @@ class MainActivity : AppCompatActivity() {
 
         val serviceIntent = Intent(this, BackgroundService::class.java)
         binding.btnStart.setOnClickListener{
-            Log.i("myTag", "starting")
+            Log.i(Tag, "starting")
             startService(serviceIntent)
         }
         binding.btnStop.setOnClickListener{
-            Log.i("myTag", "stopping")
+            Log.i(Tag, "stopping")
             stopService(serviceIntent)
         }
     }

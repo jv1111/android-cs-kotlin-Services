@@ -12,15 +12,19 @@ class BackgroundService : Service(){
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.i("myTag","Service started")
+        Log.i(Tag,"Service started")
         return START_STICKY
     }
 
     override fun onDestroy() {
-        Log.i("myTag","Service destroyed")
+        Log.i(Tag,"Service destroyed")
         super.onDestroy()
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
+
+    companion object{
+        const val Tag = "myTag"
+    }
 
 }
